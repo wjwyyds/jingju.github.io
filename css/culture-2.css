@@ -1,0 +1,232 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ul{
+    list-style: none;
+}
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  /* background: radial-gradient(#ccc, rgb(5, 1, 36)); */
+  background-color: black;
+}
+
+.scene {
+  height: 100%;
+}
+
+.scene.active .img-cont.active {
+  margin-top: -10vh !important;
+  width: 60vw;
+  height: 100vh;
+  transition: margin 0.3s, width 0.3s, height 0.3s;
+  z-index: 500;
+}
+
+
+.heading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 100;
+  font-size: 5vw;
+  color: orangered;
+  opacity: 0.7;
+  transition: opacity 0.3s, transform 0.3s;
+  will-change: opacity, transform;
+}
+
+.pagination {
+  position: absolute;
+  left: 50%;
+  top: 95%;
+  transform: translateX(-50%) translateY(-50%);
+  transition: opacity 0.3s, transform 0.3s;
+  will-change: opacity, transform;
+  z-index: 100;
+}
+
+.pagination .page-dots {
+  text-align: center;
+}
+
+.pagination .page-dots li {
+  margin: 0.3vw;
+  float: left;
+  cursor: pointer;
+  color: #cfcfcf;
+}
+
+.pagination .page-dots li.active {
+  color: red;
+}
+
+.img-cont {
+  height: 80vh;
+  width: 35vw;
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  background-size: cover;
+  transition: margin 1s cubic-bezier(0.99, 0.1, 0.35, 1.2);
+  will-change: margin;
+  z-index: 10;
+}
+/* 通过把多个类选择器链接在一起，仅可以选择同时包含这些类名的元素 */
+.img-cont.closing {
+  transition: margin 0.3s, width 0.3s, height 0.3s;
+}
+/* 不属于这个img-cont的元素加样式 */
+.img-cont:not(.active) {
+  cursor: pointer;
+}
+
+.img-cont.left {
+  margin-left: calc(-35vw - 50px);
+}
+
+.img-cont.right {
+  margin-left: 50px;
+}
+
+.img-cont.cont-1 {
+  background: url(../img/content\ and\ culture/second2.jpg) 50% 50% no-repeat fixed;
+}
+
+.img-cont.cont-2 {
+  background: url(../img/content\ and\ culture/second7.jpg) 50% 50% no-repeat fixed;
+}
+
+.img-cont.cont-3 {
+  background: url(../img/content\ and\ culture/second3.jpg) 50% 50% no-repeat fixed;
+}
+
+.img-cont.cont-2.left {
+  margin-top: -100vh;
+}
+
+.img-cont.cont-2.right {
+  margin-top: 100vh;
+}
+
+.img-cont.cont-3.left {
+  margin-top: -200vh;
+}
+
+.img-cont.cont-3.right {
+  margin-top: 200vh;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: white;
+  z-index: 2000;
+}
+
+.content.visible {
+  opacity: 1;
+}
+
+.content.visible .title {
+  transform: translateX(0);
+}
+
+.content.visible .content-text {
+  transform: scale(1);
+  opacity: 1;
+  margin-top:20px ;
+}
+
+.content.visible .close {
+  transform: rotate(45deg);
+}
+
+.content .title {
+  font-size: 4rem;
+  text-transform: uppercase;
+  transition: transform 0.5s 0.1s;
+  transform: translateX(-115%);
+}
+
+.content .content-text {
+  font-size: 2rem;
+  transition: transform 0.5s 0.2s, opacity 0.3s 0.2s;
+  transform-origin: 50% 80%;
+  transform: scale(0.3);
+  opacity: 0;
+}
+
+.content .close {
+  position: absolute;
+  top: -0.5rem;
+  right: 1rem;
+  font-size: 4rem;
+  color: #fff;
+  transform: rotate(45deg) translateY(-5rem);
+  cursor: pointer;
+  transition: transform 0.5s 0.3s cubic-bezier(0.45, 0.25, 0.7, 1.8), color 0.3s;
+}
+
+.content .close:hover {
+  color: #ffab4c;
+}
+.point {
+    margin: 20px 0 0 20px;
+    width: 20ch;
+    height: 50px;
+   
+}
+/* 1ch = 1个英文 = 1个数字 */
+/* 2ch = 1个中文 */
+/* .point span {
+    color: #fff;
+    font-size: 28px;
+    display: inline-block;
+    width: 20ch;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 700;
+    border-right: 1px solid transparent;
+    animation: typing 5s steps(10) infinite
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to{
+        width:20ch
+    }
+} */
+
+.back{
+    color: #fff;
+    font-size: 28px;
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+}
+.back:hover{
+    cursor: pointer;
+}
+h2{
+    position: relative;
+    left: 450px;
+}

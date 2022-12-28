@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="../css/jsmodern.min.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="../js/jsmodern.min.js"></script>
+    <style>
+      html {
+        background-image: url("../img/代表剧目/bg3.jpg");
+        background-size: cover;
+      }
+      #video {
+        width: 970px;
+        height: 594px;
+        margin: 20px auto;
+        position: relative;
+        box-shadow: rgba(0, 0, 0, 0, 0.3) 2px 8px 8px;
+        border: 10px rgba(244, 216, 216, 0.356) solid;
+        border-bottom: 10px rgba(249, 212, 212, 0.305) solid;
+        border-right: 10px rgba(255, 228, 228, 0.49) solid;
+      }
+      #video video {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+
+      .VideoBtn {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: block;
+        width: 70px;
+        height: 70px;
+        margin-left: -35px;
+        margin-top: -35px;
+        cursor: pointer;
+        z-index: 10;
+      }
+    </style>
+    <script>
+      $(function () {
+        //视频
+        jsModern.video("#video");
+        //播放视频
+        $(".VideoBtn").click(function () {
+          var video = document.getElementById("videoShow");
+          video.play();
+          $(".VideoBtn").hide();
+        });
+        //监听视频的播放状态
+        var video = document.getElementById("videoShow");
+        video.oncanplay = function () {
+          $(".VideoBtn").show();
+          //$("#video").attr("poster","");
+        };
+        //视频播放事件
+        video.onplay = function () {
+          $("#videoShow").attr("poster", "");
+          $(".VideoBtn").hide();
+        };
+        video.onplaying = function () {
+          $(".VideoBtn").hide();
+        };
+
+        //视频暂停事件
+        video.onpause = function () {
+          $(".VideoBtn").show();
+        };
+        //点击视频周围暂停播放图片出现
+        video.onclick = function () {
+          if (video.paused) {
+            $(".VideoBtn").hide();
+            video.play();
+          } else {
+            $(".VideoBtn").show();
+            video.pause();
+          }
+        };
+      });
+    </script>
+  </head>
+  <body class="bodyBg">
+    <div id="video">
+      <video src="../music/霸王别姬.mp4" id="videoShow"></video>
+      <span class="VideoBtn"><img src="../img/代表剧目/bo1.png" /></span>
+    </div>
+  </body>
+</html>

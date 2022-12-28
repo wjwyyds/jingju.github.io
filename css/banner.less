@@ -1,0 +1,70 @@
+@font-face {
+  font-family: sdf;
+  src: url(../font/演示夏行楷.ttf);
+}
+@font-face {
+  font-family: qhk;
+  src: url(../font/演示秋鸿楷.ttf);
+}
+.banner {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999999;
+  font-family: "qhk";
+  .wrap {
+    width: 1444px;
+    height: 50px;
+    margin: 0 auto;
+    .logo {
+      display: flex;
+      width: 75px;
+      height: 100%;
+      justify-content: center;
+      img {
+        align-self: center;
+        width: 130%;
+      }
+    }
+    .main {
+      position: absolute;
+      top: 0;
+      right: 10%;
+      li {
+        display: flex;
+        height: 50px;
+        float: right;
+        line-height: 50px;
+        text-align: center;
+        a {
+          align-self: center;
+          padding: 0 40px;
+          color: #fff;
+          font-size: 30px;
+        }
+      }
+    }
+    .close {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: 10px;
+      right: 88px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .down {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 88px;
+    width: 30px;
+    height: 30px;
+    img {
+      width: 100%;
+    }
+  }
+}
